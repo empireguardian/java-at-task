@@ -1,6 +1,7 @@
 package com.epam.ta.page;
 
 import com.epam.ta.driver.DriverManager;
+import com.epam.ta.utilities.Config;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -11,7 +12,7 @@ import java.time.Duration;
 public abstract class BasePage {
 
     protected WebDriver driver;
-    protected final Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(10);
+    protected final Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(Config.getInt("timeout.seconds"));
 
 
     protected BasePage(){

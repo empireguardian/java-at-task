@@ -1,5 +1,6 @@
 package com.epam.ta.page;
 
+import com.epam.ta.utilities.Config;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -7,7 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    private final String PAGE_URL = "https://www.saucedemo.com";
     private static final Logger log =
             LogManager.getLogger(LoginPage.class);
 
@@ -28,14 +28,14 @@ public class LoginPage extends BasePage{
     }
 
     public LoginPage openPage() {
-        driver.get(PAGE_URL);
+        driver.get(Config.get("base.url"));
         log.info("Opening login page");
         return this;
     }
 
     public InventoryPage login() {
-        usernameField.sendKeys("standard_user");
-        passwordField.sendKeys("secret_sauce");
+        usernameField.sendKeys(Config.get("username"));
+        passwordField.sendKeys(Config.get("password"));
         buttonLogin.click();
         log.info("Login as 'standard_user'");
         return new InventoryPage();

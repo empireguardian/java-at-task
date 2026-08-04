@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 
 
 public class LoginPageLayoutTest extends BaseTest {
-    @Test(description = "UC-1", priority = 1)
-    public void Test() {
+    @Test(description = "UC-1", priority = 1, groups = "layout")
+    public void testLoginPageLayout_whenPageIsOpened_expectedRequiredElementsDisplayed() {
 
         LoginPage loginPage = new LoginPage();
         loginPage.openPage();

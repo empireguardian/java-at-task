@@ -9,8 +9,8 @@ import java.util.List;
 
 public class InventoryPageLayoutTest extends BaseTest {
 
-    @Test(description = "UC-2", priority = 2)
-    public void Test() {
+    @Test(description = "UC-2", priority = 2, groups = "layout")
+    public void testInventoryPageLayout_whenStandardUserLogsIn_expectedRequiredElementsDisplayed() {
 
         InventoryPage inventoryPage = loginAsStandardUser();
         Assert.assertEquals(DriverManager.getDriver().getCurrentUrl(), "https://www.saucedemo.com/inventory.html");

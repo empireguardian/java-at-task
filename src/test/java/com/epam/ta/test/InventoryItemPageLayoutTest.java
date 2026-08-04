@@ -9,8 +9,8 @@ import org.testng.annotations.Test;
 
 public class InventoryItemPageLayoutTest extends BaseTest {
 
-    @Test(description = "UC-3", priority = 3)
-    public void test() {
+    @Test(description = "UC-3", priority = 3, groups = "layout")
+    public void testInventoryItemPageLayout_whenInventoryItemIsOpened_expectedRequiredElementsDisplayed() {
         InventoryPage inventoryPage = loginAsStandardUser();
         Assert.assertEquals(DriverManager.getDriver().getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
         ItemPage tShirtPage = inventoryPage.openTShirt();

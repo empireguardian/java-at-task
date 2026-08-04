@@ -7,8 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class ItemPage extends BasePage{
 
-    private static final Logger log =
-            LogManager.getLogger(ItemPage.class);
 
     @FindBy(xpath = "//div[text()='Swag Labs']")
     private WebElement logo;
@@ -48,7 +46,8 @@ public class ItemPage extends BasePage{
 
 
     public boolean areMainPageElementsDisplayed() {
-        WebElement[] elements = {
+
+        return areElementsDisplayed(
                 logo,
                 shoppingCart,
                 twitter,
@@ -56,38 +55,17 @@ public class ItemPage extends BasePage{
                 linkedIn,
                 backToProductsButton,
                 menuIcon
-        };
-
-        for (WebElement element : elements) {
-            log.info("Checking element: {}", element);
-            if (!isElementDisplayed(element)) {
-                log.error("Element is NOT displayed: {}", element);
-                return false;
-            }
-        }
-
-        return true;
+        );
     }
 
     public boolean areProductElementsDisplayed() {
-        WebElement[] elements = {
+
+        return areElementsDisplayed(
                 productImage,
                 productName,
                 productDescription,
                 productPrice,
                 addToCartButton
-        };
-
-        for (WebElement element : elements) {
-            log.info("Checking element: {}", element);
-            if (!isElementDisplayed(element)) {
-                log.error("Element is NOT displayed: {}", element);
-                return false;
-            }
-        }
-
-        return true;
+        );
     }
-
-
 }

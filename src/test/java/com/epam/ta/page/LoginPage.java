@@ -8,8 +8,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    private static final Logger log =
-            LogManager.getLogger(LoginPage.class);
 
     @FindBy(css = "[data-test='username']")
     private WebElement usernameField;

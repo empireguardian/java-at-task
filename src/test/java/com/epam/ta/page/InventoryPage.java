@@ -12,8 +12,6 @@ import java.util.List;
 public class InventoryPage extends BasePage{
 
     private final String PAGE_URL = "https://www.saucedemo.com/inventory.html";
-    private static final Logger log =
-            LogManager.getLogger(InventoryPage.class);
 
     @FindBy(xpath = "//div[text()='Swag Labs']")
     private WebElement logo;
@@ -56,25 +54,14 @@ public class InventoryPage extends BasePage{
     }
 
     public boolean areMainPageElementsDisplayed() {
-        WebElement[] elements = {
+        return areElementsDisplayed(
                 logo,
                 shoppingCart,
                 twitter,
                 facebook,
                 linkedIn,
                 sortingDropdown
-        };
-
-        for (WebElement element : elements) {
-
-            log.info("Checking element: {}", element);
-            if (!isElementDisplayed(element)) {
-                log.error("Element is NOT displayed: {}", element);
-                return false;
-            }
-        }
-
-        return true;
+        );
     }
 
     public List<String> getMissingDropdownElements() {
@@ -114,22 +101,13 @@ public class InventoryPage extends BasePage{
     }
 
     public boolean areMenuElementsDisplayed() {
-        WebElement[] elements = {
+
+        return areElementsDisplayed(
                 menuAllItems,
                 menuAbout,
                 menuLogout,
                 menuResetAppState
-        };
-
-        for (WebElement element : elements) {
-            log.info("Checking element: {}", element);
-            if (!isElementDisplayed(element)) {
-                log.error("Element is NOT displayed: {}", element);
-                return false;
-            }
-        }
-
-        return true;
+        );
     }
 
     public ItemPage openTShirt() {

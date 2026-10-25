@@ -11,6 +11,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
 
 
 public class TestListener implements ITestListener {
@@ -57,11 +58,13 @@ public class TestListener implements ITestListener {
         }
 
         try {
+            String pageSource = driver.getPageSource();
 
             Allure.addAttachment(
                     "Page Source",
                     "text/html",
-                    driver.getPageSource(),
+                    new ByteArrayInputStream(
+                            pageSource.getBytes(StandardCharsets.UTF_8)),
                     ".html"
             );
 
